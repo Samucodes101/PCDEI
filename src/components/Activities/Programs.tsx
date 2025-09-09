@@ -71,9 +71,10 @@ const Programs = () => {
     }
   ]
 
-  const handleImageError = (index) => {
-    setImageLoadErrors(prev => ({ ...prev, [index]: true }))
-  }
+const handleImageError = (index: number) => {
+  setImageLoadErrors(prev => ({ ...prev, [index]: true }))
+}
+
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -1,12 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { useState } from 'react'
 import { Heart, Users, BookOpen, TrendingUp, Megaphone, Building } from 'lucide-react'
 import Image from 'next/image'
 
 const Programs = () => {
-  const [imageLoadErrors, setImageLoadErrors] = useState({})
+const [imageLoadErrors, setImageLoadErrors] = useState<Record<number, boolean>>({})
 
   const programCategories = [
     {
@@ -86,17 +86,18 @@ const handleImageError = (index: number) => {
     }
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
     }
   }
+}
+    
 
   return (
     <div className="min-h-screen bg-gray- py-16">
@@ -134,12 +135,14 @@ const handleImageError = (index: number) => {
                   <div className="lg:w-2/5 relative">
                     <div className="h-64 lg:h-full bg-gray-100 rounded-lg m-4 flex items-center justify-center overflow-hidden">
                       {!imageLoadErrors[index] ? (
-                        <image
-                          src={`/api/placeholder/400/300?text=${encodeURIComponent(category.title)}`}
-                          alt={category.imageAlt}
-                          className="w-full h-full object-cover rounded-lg"
-                          onError={() => handleImageError(index)}
-                        />
+<Image
+  src={`/api/placeholder/400/300?text=${encodeURIComponent(category.title)}`}
+  alt={category.imageAlt}
+  fill
+  className="object-cover rounded-lg"
+  onError={() => handleImageError(index)}
+/>
+
                       ) : (
                         <div className="w-full h-full bg-gray-100 rounded-lg flex flex-col items-center justify-center text-gray-500">
                           <IconComponent size={48} className="text-dark-blue mb-3" />

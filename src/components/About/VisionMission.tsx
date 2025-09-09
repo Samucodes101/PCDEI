@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import SectionTitle from '../../components/UI/SectionTitle'
+// import SectionTitle from '../../components/UI/SectionTitle'
 
 const VisionMission = () => {
   return (

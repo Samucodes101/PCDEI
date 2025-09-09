@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Heart, Users, BookOpen, TrendingUp, Megaphone, Building } from 'lucide-react'
+import Image from 'next/image'
 
 const Programs = () => {
   const [imageLoadErrors, setImageLoadErrors] = useState({})
@@ -132,7 +133,7 @@ const Programs = () => {
                   <div className="lg:w-2/5 relative">
                     <div className="h-64 lg:h-full bg-gray-100 rounded-lg m-4 flex items-center justify-center overflow-hidden">
                       {!imageLoadErrors[index] ? (
-                        <img
+                        <image
                           src={`/api/placeholder/400/300?text=${encodeURIComponent(category.title)}`}
                           alt={category.imageAlt}
                           className="w-full h-full object-cover rounded-lg"

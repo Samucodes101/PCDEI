@@ -8,7 +8,7 @@ export default function Contact() {
           <div className="mb-6">
             <h2 className="text-2xl font-semibold text-dark-blue mb-4">Get in Touch</h2>
             <p className="text-gray-600 mb-4">
-              We'd love to hear from you. Reach out to us through any of the following channels:
+              We&apos;d love to hear from you. Reach out to us through any of the following channels:
             </p>
           </div>
           
